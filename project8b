@@ -1,0 +1,62 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package project8;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+/**
+ *
+ * @author ovier47
+ */
+public class Project8 extends Application {
+   // added this without me asking 
+    private Parent pane;
+    
+    @Override
+    public void start(Stage primaryStage) {
+    int n1 = (int) (1+ (Math.random() * 52)) ;
+    int n2 = (int) (1+ (Math.random() * 52));
+    int n3 = (int) (1+ (Math.random() * 52));
+     
+     Image [] cards = new Image [53];
+    for ( int i = 1; i < 53; i++) {
+        cards[i] = new Image ( "/card/" + i+ ".png"); // path   
+    }
+    ImageView card1 = new ImageView (cards[n1]);
+    ImageView card2 = new ImageView (cards[n2]);
+    ImageView card3 = new ImageView (cards[n3]);
+    
+    HBox king =new HBox ();
+    king.getChildren().add(card1);
+    king.getChildren().add(card2);
+    king.getChildren().add(card3);
+     
+        Scene scene = new Scene(king);
+        
+        primaryStage.setTitle("display Cards");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+    
+}
